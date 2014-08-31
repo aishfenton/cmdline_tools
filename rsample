@@ -1,0 +1,24 @@
+#!/usr/bin/env scala
+
+val k = args(0).toInt
+val samples = Array.ofDim[String](k)
+var i = 0
+
+var line = Console.in.readLine
+while(line != null) {
+  if (i < k) {
+    samples(i) = line
+  } else {
+    val i2 = util.Random.nextInt(i+1) 
+    if (i2 < k) {
+      samples(i2) = line
+    }
+  }
+    
+  line = Console.in.readLine
+  i += 1
+}
+
+samples.foreach { l =>
+  if (l != null) println(l)
+}
